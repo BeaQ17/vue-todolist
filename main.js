@@ -1,6 +1,7 @@
 const app = new Vue ({
     el: "#app",
     data:{
+        newTask: "",
         tasks: [
             "First task",
             "Second task",
@@ -8,6 +9,8 @@ const app = new Vue ({
         ]
     },
     methods:{
-
+        addTask(){
+            this.tasks.push(this.newTask)
+        },
     }
 });
