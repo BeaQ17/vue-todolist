@@ -1,5 +1,5 @@
 const app = new Vue ({
-    el: "#app",
+    el: "#root",
     data:{
         newTask: "",
         tasks: [
@@ -12,6 +12,7 @@ const app = new Vue ({
     methods:{
         addTask(){
             this.tasks.push(this.newTask)
+            this.newTask=""
         },
         deleteTask(index){
             console.log("Delete task " + index);

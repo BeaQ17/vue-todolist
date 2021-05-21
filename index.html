@@ -12,6 +12,10 @@
 
     <!--style-->
     <style>
+        body{
+            background-color: lightskyblue;
+        }
+
         #logoimg{
             width: 250px;
             height: 70px;
@@ -20,18 +24,24 @@
 </head>
 <body>
     
-    <div id="app">
-        <img :src="logoImg" alt="logo boolean" id="logoimg">
+    <div id="root">
+        <div class="logoimg">
+            <img :src="logoImg" alt="logo boolean" id="logoimg">
+        </div>
         <div class="newtask">
             <input type="text" v-model="newTask" placeholder="Add new task">
             <button @click="addTask">Add task</button>
         </div>
-        <div class="tasks">
+        <div class="tasks" v-if="tasks.length > 0">
             <div class="task" v-for="(task, index) in tasks">{{task}} 
                 <i class="fas fa-window-close" @click="deleteTask(index)"></i>
             </div>
         </div>
+        <div id="done" v-else>
+            <p>You're all done!</p>
+        </div>
     </div>
+    
 
 
     <!-- VueJS CDN -->
