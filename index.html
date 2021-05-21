@@ -40,6 +40,9 @@
 
         .inp{
             background-color: transparent;
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 17px;
+            padding-left: 15px;
         }
 
         .inp:hover{
@@ -51,21 +54,31 @@
 <body>
     
     <div id="root">
+        <!--logo-->
         <div class="logoimg">
             <img :src="logoImg" alt="logo boolean" id="logoimg">
         </div>
+        <!--new task form-->
         <div class="newtask">
             <input type="text" v-model="newTask" placeholder="Add new task" @keyup.enter="addTask">
             <button @click="addTask">Add task</button>
         </div>
+        <!--task list-->
         <div class="tasks" v-if="tasks.length > 0">
             <div class="task" v-for="(task, index) in tasks">
                 <input type="text" v-model="tasks[index]" class="inp">
                 <i class="fas fa-window-close" @click="deleteTask(index)"></i>
+                <i class="fas fa-check-square" @click="doneTask(index, task)"></i>
             </div>
         </div>
+        <!--done message-->
         <div id="done" v-else>
             <p>You're all done!</p>
+        </div>
+        <!--completed task list-->
+        <div class="completed">
+            <p>You have completed these tasks:</p>
+            <div v-for="task in completed">{{task}}</div>
         </div>
     </div>
     
