@@ -9,17 +9,27 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
         integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
         crossorigin="anonymous" />
+
+    <!--style-->
+    <style>
+        #logoimg{
+            width: 250px;
+            height: 70px;
+        }
+    </style>
 </head>
 <body>
     
     <div id="app">
-
+        <img :src="logoImg" alt="logo boolean" id="logoimg">
         <div class="newtask">
             <input type="text" v-model="newTask" placeholder="Add new task">
             <button @click="addTask">Add task</button>
         </div>
         <div class="tasks">
-            <div class="task" v-for="task in tasks">{{task}} <i class="fas fa-window-close"></i></div>
+            <div class="task" v-for="(task, index) in tasks">{{task}} 
+                <i class="fas fa-window-close" @click="deleteTask(index)"></i>
+            </div>
         </div>
     </div>
 
