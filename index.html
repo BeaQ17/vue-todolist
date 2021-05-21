@@ -16,10 +16,36 @@
             background-color: lightskyblue;
         }
 
+        #root{
+            margin: auto;
+            width: 60%;
+            text-align: center;
+            margin-top: 100px;
+        }
+
+        img{
+            margin-bottom: 20px;
+        }
+
         #logoimg{
             width: 250px;
             height: 70px;
         }
+
+        input{
+            border-style: none;
+            border-radius: 10px;
+            margin-top: 5px;
+        }
+
+        .inp{
+            background-color: transparent;
+        }
+
+        .inp:hover{
+            background-color: thistle;
+        }
+
     </style>
 </head>
 <body>
@@ -34,7 +60,7 @@
         </div>
         <div class="tasks" v-if="tasks.length > 0">
             <div class="task" v-for="(task, index) in tasks">
-                <input type="text" v-model="tasks[index]">
+                <input type="text" v-model="tasks[index]" class="inp">
                 <i class="fas fa-window-close" @click="deleteTask(index)"></i>
             </div>
         </div>
